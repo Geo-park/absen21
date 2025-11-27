@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #e9ecf5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 850px;
+    height: 500px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+/* LEFT BLUE PANEL */
+.slide-panel {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #6c8df5;
+    border-radius: 0 150px 150px 0;
+    border-bottom-right-radius: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .6s ease-in-out;
+}
+
+.slide-panel.move {
+    left: 50%;
+}
+
+.panel-content {
+    text-align: center;
+    color: white;
+    position: absolute;
+    width: 80%;
+    opacity: 0;
+    transition: .6s ease-in-out;
+}
+
+.login-panel { opacity: 1; }
+.slide-panel.move .login-panel { opacity: 0; }
+
+.slide-panel.move .register-panel { opacity: 1; }
+
+/* FORM BOXES */
+.form-box {
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.form-box h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-box input {
+    padding: 12px;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+.form-box button {
+    background: #6c8df5;
+    padding: 12px;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-box button:hover {
+    opacity: .8;
+}
+
+/* POSITION */
+.login-box { position: absolute; right: 0; }
+.register-box { 
+    position: absolute; 
+    left: 0; 
+    opacity: 0; 
+    transition: .6s ease-in-out;
+}
+
+.slide-panel.move ~ .register-box {
+    opacity: 1;
+}
+
+.slide-panel.move ~ .login-box {
+    opacity: 0;
+}
+
+.slide-panel,
+.panel-content,
+.panel-btn {
+    z-index: 5;
+    position: relative;
+}
+
+/* TOMBOL DI PANEL BIRU */
+.panel-btn {
+    margin-top: 15px;
+    padding: 10px 30px;
+    background: #ffffff;
+    color: #6c8df5;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.panel-btn:hover {
+    background: #f3f3f3;
+    transform: scale(1.05);
+}

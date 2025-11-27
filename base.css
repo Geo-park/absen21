@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f6fa;
+  color: #333;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ffffff20;
+  margin: 10px 0;
+}
