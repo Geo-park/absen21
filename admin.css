@@ -1,78 +1,136 @@
-.table-wrapper {
-    width: 60%;               
-    margin: 40px auto;         
-    background: #ffffff;
-    padding: 25px;
+/* ---------------------------------------------------
+   GLOBAL STYLE
+--------------------------------------------------- */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(160deg, #cdd7ff, #eaf0ff);
+}
+
+/* ---------------------------------------------------
+   MAIN BOX
+--------------------------------------------------- */
+.main-box {
+    width: 80%;
+    margin: 40px auto;
+    background: white;
+    padding-bottom: 40px;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------
+   HEADER BIRU
+--------------------------------------------------- */
+.header-blue {
+    background: #5d82f9;
+    padding: 35px 0;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------
+   SUMMARY CARDS (3 BOX)
+--------------------------------------------------- */
+.summary-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: -50px;
+}
+
+.summary-card {
+    background: white;
+    width: 200px;
+    padding: 25px 0;
     border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(10px);
-    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    text-align: center;
 }
 
-.title-header {
-    font-size: 28px;
+.summary-card-icon {
+    font-size: 40px;
+    color: #5d82f9;
+    margin-bottom: 8px;
+}
+
+.summary-card h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+}
+
+.summary-card p {
+    font-size: 32px;
+    margin: 5px 0 0;
     font-weight: 800;
-    margin-bottom: 22px;
-    color: #1f2c5c;
-    text-align: center;        
-    padding-left: 0;
-    border-left: none;
+    color: #222;
 }
 
-table {
-    width: 100%;               
-    border-collapse: collapse;
-    font-size: 15px;
+/* ---------------------------------------------------
+   TABLE WRAPPER
+--------------------------------------------------- */
+.table-title {
+    margin-top: 45px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+}
+
+.table-container {
+    width: 90%;
+    margin: 20px auto;
     background: white;
     border-radius: 16px;
     overflow: hidden;
-    text-align: center;        
+    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
 }
 
-/* Header tabel */
-table thead th {
-    background: #6c8df5;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+thead tr {
+    background: #5d82f9;
     color: white;
-    padding: 12px;
-    font-weight: 600;
-    letter-spacing: 0.4px;
-    text-align: center;
+    font-size: 15px;
 }
 
-/* Isi tabel */
-table tbody td {
-    padding: 12px 10px;
-    border-bottom: 1px solid #e4e7ff;
+thead th {
+    padding: 14px;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: 14px 10px;
     color: #333;
-    text-align: center;
+    border-bottom: 1px solid #ebeeff;
 }
 
-/* Hover */
-table tbody tr:hover {
-    background: #eef2ff;
-    transition: 0.25s;
-    box-shadow: 0 4px 20px rgba(108, 141, 245, 0.18);
+tbody tr:hover {
+    background: #f5f7ff;
 }
 
-/* Foto bukti */
+/* FOTO BULAT */
 .bukti-img {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     object-fit: cover;
-    border-radius: 14px;
-    border: 2px solid #d5d9e4;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    transition: 0.25s;
+    border: 3px solid #dfe4ff;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
 }
 
-.bukti-img:hover {
-    transform: scale(1.12);
-}
-
-/* Total text di tengah */
+/* TOTAL TEXT */
 .total-text {
-    margin-top: 16px;
-    font-weight: 600;
-    color: #1f1f1f;
     text-align: center;
+    margin-top: 18px;
+    font-weight: 600;
 }
