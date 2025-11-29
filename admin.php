@@ -9,7 +9,7 @@ $query = mysqli_query($conn, "SELECT * FROM absen");
 <meta charset="UTF-8">
 <title>Data Kehadiran</title>
 <link rel="stylesheet" href="tampilan.css">
-<link rel="stylesheet" href="tampilan-admin.css">
+<link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
