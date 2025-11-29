@@ -1,58 +1,85 @@
 <?php
 include("config.php");
+
+// Ambil data dari database
 $query = mysqli_query($conn, "SELECT * FROM absen");
+
+// Ringkasan
+$total_hadir = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) AS total FROM absen WHERE kehadiran='Hadir'"))['total'];
+$total_izin  = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) AS total FROM absen WHERE kehadiran='Izin'"))['total'];
+$total_sakit = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) AS total FROM absen WHERE kehadiran='Sakit'"))['total'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Data Kehadiran</title>
-<link rel="stylesheet" href="tampilan.css">
-<link rel="stylesheet" href="admin.css">
-</head>
+    <meta charset="UTF-8">
+    <title>Dashboard Kehadiran</title>
 
+    <!-- HUBUNGKAN CSS -->
+    <link rel="stylesheet" href="admin.css">
+</head>
 <body>
 
-<div class="shape1"></div>
-<div class="shape2"></div>
+<div class="main-box">
 
-<!-- GANTI table-container menjadi table-wrapper -->
-<div class="table-wrapper">
-    
-    <!-- GANTI h2 biasa menjadi class title-header -->
-    <h2 class="title-header">Data Kehadiran Siswa</h2>
+    <div class="header-blue">
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>No Absen</th>
-                <th>Nama</th>
-                <th>Kelas</th>
-                <th>Jenis Kelamin</th>
-                <th>Kehadiran</th>
-                <th>Bukti Kehadiran</th>
-            </tr>
-        </thead>
+    <div class="summary-container">
 
-        <tbody>
-            <?php while ($row = mysqli_fetch_assoc($query)) { ?>
+        <div class="summary-card">
+            <div class="summary-card-icon">✔</div>
+            <h4>Total Hadir</h4>
+            <p><?= $total_hadir ?></p>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-card-icon">❗</div>
+            <h4>Total Izin</h4>
+            <p><?= $total_izin ?></p>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-card-icon">➕</div>
+            <h4>Total Sakit</h4>
+            <p><?= $total_sakit ?></p>
+        </div>
+
+    </div>
+
+    <div class="table-title">Data Kehadiran Siswa</div>
+
+    <div class="table-container">
+        <table>
+            <thead>
                 <tr>
-                    <td><?= $row['no_absen']; ?></td>
-                    <td><?= $row['nama']; ?></td>
-                    <td><?= $row['kelas']; ?></td>
-                    <td><?= $row['jenis_kelamin']; ?></td>
-                    <td><?= $row['kehadiran']; ?></td>
-                    <td>
-                        <img src="uploads/<?= $row['foto']; ?>" class="bukti-img">
-                    </td>
+                    <th>No Absen</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Kehadiran</th>
+                    <th>Bukti Foto</th>
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </thead>
 
-    <!-- GANTI p biasa menjadi class total-text -->
-    <p class="total-text">Total: <?= mysqli_num_rows($query); ?> absen</p>
+            <tbody>
+                <?php while ($row = mysqli_fetch_assoc($query)) { ?>
+                <tr>
+                    <td><?= $row['no_absen'] ?></td>
+                    <td><?= $row['nama'] ?></td>
+                    <td><?= $row['kelas'] ?></td>
+                    <td><?= $row['jenis_kelamin'] ?></td>
+                    <td><?= $row['kehadiran'] ?></td>
+                    <td><img class="bukti-img" src="uploads/<?= $row['foto'] ?>"></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="total-text">Total: <?= mysqli_num_rows($query) ?> siswa</p>
+
 </div>
 
 </body>
